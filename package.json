@@ -1,0 +1,21 @@
+{
+  "name": "evaluacion_asincronia",
+  "version": "1.0.0",
+  "description": "Evaluación Asincronía",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atollivo/Evaluacion_asincronia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/atollivo/Evaluacion_asincronia/issues"
+  },
+  "homepage": "https://github.com/atollivo/Evaluacion_asincronia#readme"
+}
