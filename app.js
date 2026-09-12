@@ -1,4 +1,10 @@
-import { API_BASE_URL } from './utils/config.js';
+import readline from 'node:readline';
+import { getPendingTodosByUser , getUserByUsername} from './src/ejercicios/index.js';
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
 /**
  * Despliega el menú principal en la consola del sistema.
@@ -8,7 +14,8 @@ function showMenu() {
   console.log('         MENÚ DE OPCIONES');
   console.log('====================================');
   console.log('1. Listar tareas pendientes por usuario');
-  console.log('2. Salir');
+  console.log('2. Buscar usuario por nombre');
+  console.log('3. Salir');
   console.log('====================================');
   
   rl.question('Seleccione una opción: ', async (option) => {
@@ -26,6 +33,22 @@ function showMenu() {
         break;
 
       case '2':
+        rl.question('Ingrese el nombre de usuario: ', async (username) => {
+          try {
+            const user = await getUserByUsername(username);
+            if (user) {
+              console.log(JSON.stringify(user, null, 2));
+            } else {
+              console.log('Usuario no encontrado.');
+            }
+          } catch (error) {
+            console.log('No se pudo completar la operación.');
+          }
+          showMenu();
+        });
+        break;
+
+      case '3':
         console.log('\nSaliendo de la aplicación...');
         rl.close();
         break;
